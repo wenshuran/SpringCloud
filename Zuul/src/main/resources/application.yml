@@ -1,0 +1,15 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: Zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+
+zuul:
+  routes:
+    consumer: /user/**
+#  prefix: /zuul
+#  ignored-services: "*"  #让其它链接失效

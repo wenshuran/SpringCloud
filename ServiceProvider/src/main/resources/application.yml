@@ -1,0 +1,51 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: provider
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: root
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+
+eureka:
+  instance:
+#    instance-id: provider
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+
+
+# 使用actuator来展示项目的基本信息
+info:
+  author:
+    name = Shuran Wen
+  app:
+    name = Spring Cloud
+  server:
+    port = ${server.port}
+  application:
+    name = ${spring.application.name}
+
+#eureka:
+#  instance:
+#    hostname: provider
+#  client:
+#    service-url:
+#      defaultZone: http://${EUREKA01Name}:${EUREKA01Port}/eureka/, http://${EUREKA02Name}:${EUREKA02Port}/eureka/
+#instance:
+#  prefer-ip-address: true #显示客户端真实ip
+#
+#ribbon:
+#  eureka:
+
+#    enabled: true
