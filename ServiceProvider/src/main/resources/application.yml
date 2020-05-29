@@ -4,25 +4,47 @@ spring:
   application:
     name: provider
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: root
-    password: password
+    url: ${spring.datasource.url}
+    driver-class-name: ${spring.datasource.driver-class-name}
+    username: ${spring.datasource.username}
+    password: ${spring.datasource.password}
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: ${spring.jpa.database-platform}
     hibernate:
-      ddl-auto: update
+      ddl-auto: ${spring.jpa.hibernate.ddl-auto}
   h2:
     console:
-      enabled: true
+      enabled: ${spring.h2.console.enabled}
 
 eureka:
   instance:
-#    instance-id: provider
-    prefer-ip-address: true
+  #    instance-id: provider
+    prefer-ip-address: ${eureka.instance.prefer-ip-address}
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka/
+      defaultZone: ${eureka.client.service-url.defaultZone}
+
+
+#  datasource:
+#    url: jdbc:h2:mem:testdb
+#    driver-class-name: org.h2.Driver
+#    username: root
+#    password: password
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate:
+#      ddl-auto: update
+#  h2:
+#    console:
+#      enabled: true
+
+#eureka:
+#  instance:
+##    instance-id: provider
+#    prefer-ip-address: true
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:7001/eureka/
 
 
 # 使用actuator来展示项目的基本信息

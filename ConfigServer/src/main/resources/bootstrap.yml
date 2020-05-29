@@ -1,14 +1,12 @@
 spring:
   cloud:
-    config:
-      name: user
-      profile: dev
-      uri: http://localhost:8030/
     bus:
       refresh:
         enabled: true
   kafka:
     bootstrap-servers: localhost:9092
+    consumer:
+      group-id: test
 management:
   endpoints:
     web:

@@ -5,6 +5,10 @@ spring:
     name: consumer
 eureka:
   client:
-#    register-with-eureka: false
     service-url:
-      defaultZone: http://localhost:7001/eureka/
+      defaultZone: ${eureka.client.service-url.defaultZone}
+#eureka:
+#  client:
+##    register-with-eureka: false
+#    service-url:
+#      defaultZone: http://localhost:7001/eureka/
